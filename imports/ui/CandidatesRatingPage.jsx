@@ -80,7 +80,8 @@ export default class CandidatesRatingPage extends Component {
                 window.scrollTo(0, 0);
               } else {
                 // if (!Object.values(this.props.ratings).includes(0)){
-                  this.props.callBack();
+                // this.setState({candidates: this.state.candidates});
+                this.props.callBack();
                 // } else {
                 //   alert("Please Rate all the candidates!");
                 // }

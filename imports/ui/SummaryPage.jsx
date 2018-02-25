@@ -34,6 +34,7 @@ export default class SummaryPage extends Component {
     this.showExtraQuestionsRating = this.showExtraQuestionsRating.bind(this);
     this.showExtraQuestionsText = this.showExtraQuestionsText.bind(this);
     this.HackOtherQuestionCallback = this.HackOtherQuestionCallback.bind(this);
+    this.candidateComparator = this.candidateComparator.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -65,8 +66,20 @@ export default class SummaryPage extends Component {
     this.props.updateOtherQuestionRating(question, newRating);
   }
 
+  candidateComparator(candidate_a, candidate_b) {
+    var mturk_id_a = candidate_a.mturk_id;
+    var mturk_id_b = candidate_b.mturk_id;
+    if (this.props.ratings[mturk_id_a] > this.props.ratings[mturk_id_b]) {
+      return -1;
+    } else if (this.props.ratings[mturk_id_a] < this.props.ratings[mturk_id_b]) {
+      return 1;
+    }
+  }
+
   showCandidates() {
-    return (this.props.candidates.map((candidate) =>
+    //sort the candidatesControl
+    var sortedCandidate = this.props.candidates.sort(this.candidateComparator);
+    return (sortedCandidate.map((candidate) =>
       <CandidateCard
         key={candidate.mturk_id}
         candidate={candidate}
@@ -202,10 +215,10 @@ export default class SummaryPage extends Component {
           <div className="candidate-cards-container">
             {this.showCandidates()}
           </div>
-          <div className="candidates-order-container">
+          {/* <div className="candidates-order-container">
             <h5>Please Drag and Drop Ranking (Most Favourite On Left):</h5>
             {this.orderSelectedCandidates()}
-          </div>
+          </div> */}
           <div className="other-question-container">
             <h5>Please Finish the Following Survey Satisfaction Questions:</h5>
             {this.showExtraQuestionsRating()}

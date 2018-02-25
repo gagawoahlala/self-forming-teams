@@ -71,8 +71,15 @@
     },
     {
         "qualtricsid": "Q20",
-        "content": "Describe your personality strengths and weaknesses 50 words or less.",
+        "content": "Describe your personality strengths in 30 - 50 words.",
         "qid": "q55",
+        "block": "basic_info",
+        "answertype": "string"
+    },
+    {
+        "qualtricsid": "Q21",
+        "content": "Describe your personality weaknesses in 30 - 50 words.",
+        "qid": "q54",
         "block": "basic_info",
         "answertype": "string"
     },

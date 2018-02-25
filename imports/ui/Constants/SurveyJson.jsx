@@ -308,6 +308,7 @@ export const PERSONALITY_TASK = {
      title: {
       en: "What qualities do you look for in a team member? (Fill as many as you need. Write as much as you need for each response, one quality per box.)"
      },
+     isRequired: true,
      items: [
       {
        name: "Most Important"
@@ -323,12 +324,6 @@ export const PERSONALITY_TASK = {
       },
       {
        name: "5th most important"
-      },
-      {
-       name: "6th most important"
-      },
-      {
-       name: "7th most important"
       }
      ],
      itemSize: 29
@@ -354,7 +349,15 @@ export const PERSONALITY_TASK = {
      type: "comment",
      name: "Q20",
      title: {
-      en: "Describe your personality strengths and weaknesses 50 words or less."
+      en: "Describe your personality strengths in 30 - 50 words."
+     },
+     isRequired: true
+    },
+    {
+     type: "comment",
+     name: "Q21",
+     title: {
+      en: "Describe your personality weaknesses in 30 - 50 words."
      },
      isRequired: true
     }

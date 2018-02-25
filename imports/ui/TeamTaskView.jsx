@@ -12,8 +12,8 @@ export default class TeamTaskView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // link : `http://etherpad.ucsd.edu:9006/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
-      link : `https://beta.etherpad.org/p/teamformationfebruary2test${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
+      link : `http://etherpad.ucsd.edu:9006/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
+      // link : `https://beta.etherpad.org/p/teamformationfebruary2test${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
       // link: `https://beta.etherpad.org/p/${this.props.teamId}?showControls=true&showChat=true&showLineNumbers=true&useMonospaceFont=false`
 
     }
@@ -130,7 +130,7 @@ export default class TeamTaskView extends Component {
     if (this.props.page > 2) {
       return(
         <div id="frame">
-          <Iframe url={this.state.link}  width="1280px" height="720px" display="initial" position="relative" allowFullScreen/>
+          <Iframe url={this.state.link}  width="1024px" height="768px" display="initial" position="relative" allowFullScreen/>
         </div>
       );
 

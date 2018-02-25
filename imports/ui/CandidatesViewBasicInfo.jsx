@@ -23,8 +23,10 @@ export default class CandidatesViewBasicInfo extends Component {
     return (
       <div className="basic-info">
         <h4><b>Personality Information:</b></h4>
-        <p className="question"><strong>Personality paragraph:</strong></p>
-        <p className="answer">{this.props.basicInfo[Const.BIO]}</p>
+        <p className="question"><strong>Strength Description:</strong></p>
+        <p className="answer">{this.props.basicInfo[Const.BIO_STRENGTH]}</p>
+        <p className="question"><strong>Weakness Description:</strong></p>
+        <p className="answer">{this.props.basicInfo[Const.BIO_WEAKNESS]}</p>
       </div>
     );
   }

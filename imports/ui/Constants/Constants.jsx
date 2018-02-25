@@ -71,6 +71,8 @@ export const PERFORMANCE_QUESTION = ["Advertisement slogan"]
 
 
 // export const BIO = "Where do you see yourself in 5 years? - Write about your goals for your education, career, family, travel, or any other aspect of life. What will be your definition of success in measuring the achievement of those goals?";
-export const BIO = "Describe your personality strengths and weaknesses 50 words or less.";
+export const BIO_STRENGTH = "Describe your personality strengths in 30 - 50 words.";
+export const BIO_WEAKNESS = "Describe your personality weaknesses in 30 - 50 words.";
+
 
 export const DEMO_QUESTION = ["Gender", "Age (in years)", "What is the highest degree or level of education you have completed?", "Ethnicity", "Do you have a job besides working on Amazon Mechanical Turk?", "In which field/industry are you working?"]

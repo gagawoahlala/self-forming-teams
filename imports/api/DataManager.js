@@ -429,8 +429,13 @@ export default class DataManager {
           if (qualtricsid == "Q20") {
             answer = ans[qualtricsid].replace("\"", "");
             answer = "\"" + ans[qualtricsid] + "\"";
-            map.basic_info["Describe your personality strengths and weaknesses 50 words or less."] = answer;
-          } else {
+            map.basic_info["Describe your personality strengths in 30 - 50 words."] = answer;
+          } else if (qualtricsid == "Q21") {
+            answer = ans[qualtricsid].replace("\"", "");
+            answer = "\"" + ans[qualtricsid] + "\"";
+            map.basic_info["Describe your personality weaknesses in 30 - 50 words."] = answer;
+          }
+          else {
             map.basic_info[basic_info_q[qualtricsid]] = ans[qualtricsid];
           }
         }else{

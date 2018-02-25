@@ -380,12 +380,12 @@ class App extends Component {
             {/* <span className="counter-box-app-text">
             Time to wait:
             </span> */}
-            <ReactCountdownClock  seconds={60} color="#000" alpha={1.0} size={100} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
+            <ReactCountdownClock  seconds={600} color="#000" alpha={1.0} size={100} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
           </div>
         </div>
         <div className={this.state.isWaitingForTeamFormation ? 'counter-center-box' : 'disable-display'}>
 
-          <ReactCountdownClock  seconds={120} color="#000" alpha={1.0} size={100} restartOnNewProps={false}/>
+          <ReactCountdownClock  seconds={720} color="#000" alpha={1.0} size={100} restartOnNewProps={false}/>
         </div>
         <div className="container">
           {this.determinePage()}
