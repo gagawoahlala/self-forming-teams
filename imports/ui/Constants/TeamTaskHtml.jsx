@@ -13,10 +13,10 @@ export const page1WithImg = (
         <br></br>
 
         <p>- the television advertisement should be 30 seconds</p>
-        <p>- it should highlight the product 's main benefits and ultimately persuade people to buy it</p>
+        <p>- it should highlight the product's main benefits and ultimately persuade people to buy it</p>
         <p>- you can make up a new name and invent realistic features that it should have </p>
         <br></br>
-        <b>You have 1:00 minute</b> to read these directions before you 're automatically moved to the next section. Scroll to the bottom of the page to see all of the directions and the photo.
+        <b>You have 1:00 minute</b> to read these directions before you're automatically moved to the next section. Scroll to the bottom of the page to see all of the directions and the photo.
         <br/>
         <br/>
         <p><u><b>Sample advertisement</b></u></p>
@@ -27,7 +27,7 @@ export const page1WithImg = (
 
         <p> "Scopa: Live life, one bean at a time A rugged man is free-climbing up Puncak Jaya, the highest mountain in New Guinea. He climbs effortlessly and quickly reaches the summit. Once at the top he takes a moment to admire the view surrounded by clouds and then removes a flask from his backpack, swiftly pouring a brown liquid into the cup of the flask. Last, the scene cuts to a blank screen with writing saying: “2 beans, 2 sides, which side will you be today?”
         </p>
-        
+
       </div>
       <br/>
       <div className="centerdiv">
@@ -86,14 +86,12 @@ export const page2 = (
     <div  >
       <h4><b>Part 1: FEATURE LIST</b></h4>
       <ul>
-        <li><p><b>You have 2 minutes.</b>
+        <li><p><b>You have 2 minutes. </b>
         Write your name under “team member” at the top of the collaborative workspace.
         </p></li>
-        <li><p><b>Introduce yourself to your teammate
-        </b>by writing anywhere in the collaborative workspace.</p></li>
-        <li><p>Read each other’s slogans written during the individual task.</p></li>
-        <li><p><b>Write down</b>all your ideas for features of the transportation device<b>as a list.
-        </b>Record them under “Part 1” heading of the collaborative workspace.
+        <li><p><b>Introduce yourself to your teammate </b>by writing anywhere in the collaborative workspace.</p></li>
+        <li><p>Read your own and your teammate's slogans written during the individual task.</p></li>
+        <li><p><b>Write down</b> all your ideas for features of the transportation device<b> as a list. </b>Record them under “Part 1” heading of the collaborative workspace.
         </p></li>
       </ul>
     </div>
@@ -102,7 +100,7 @@ export const page2 = (
       <h4><b>Part 2: FEATURE SELECTION</b></h4>
       <ul>
         <li><p><b>You have 1.5 minutes.</b></p></li>
-        <li><p><b>As a team, select the best features you want to use for the advertisement.</b>
+        <li><p><b>As a team, select the best features you want to use for the advertisement. </b>
         Combine your ideas and build off each other. Discuss the merits of your individual ideas come up with ways to merge them.
         </p></li>
         <li><p>Record the features under “Part 2” heading of the collaborative workspace.</p> </li>
@@ -138,14 +136,14 @@ export const page3 = (
   <div className = "row" id = "demo" >
     <h4><b>Part 1: FEATURE LIST</b></h4>
     <ul>
-      <li><p><b>You have 2 minutes.</b>
+      <li><p><b>You have 2 minutes. </b>
       Write your name under “team member” at the top of the collaborative workspace.
       </p></li>
       <li><p><b>Introduce yourself to your teammate
-      </b>by writing anywhere in the collaborative workspace.</p></li>
-      <li><p>Read each other’s slogans written during the individual task.</p></li>
-      <li><p><b>Write down</b> all your ideas for features of the transportation device<b> as a list. 
-      </b>Record them under “Part 1” heading of the collaborative workspace.
+      </b> by writing anywhere in the collaborative workspace.</p></li>
+      <li><p>Read your own and your teammate's slogans written during the individual task.</p></li>
+      <li><p><b>Write down</b> all your ideas for features of the transportation device<b> as a list.
+      </b> Record them under “Part 1” heading of the collaborative workspace.
       </p></li>
     </ul>
   </div>
@@ -157,7 +155,7 @@ export const page4 = (
     <h4><b>Part 2: FEATURE SELECTION</b></h4>
     <ul>
       <li><p><b>You have 1.5 minutes.</b></p></li>
-      <li><p><b>As a team, select the best features you want to use for the advertisement.</b>
+      <li><p><b>As a team, select the best features you want to use for the advertisement. </b>
       Combine your ideas and build off each other. Discuss the merits of your individual ideas come up with ways to merge them.
       </p></li>
       <li><p>Record the features under “Part 2” heading of the collaborative workspace.</p> </li>

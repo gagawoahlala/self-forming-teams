@@ -185,16 +185,6 @@ class App extends Component {
       this.setState({isParamValid: false});
     }
 
-
-    // if (this.checkParam(query)) {
-    //   tester = {}
-    //   Const.OCEAN_QUESTION_ID.map(val => tester[val] = query[val]);
-    //   tester["ocean"] = DataManager.calculateBigFivePoints(tester);
-    //   this.setState({tester : tester});
-    // }
-
-    // console.log(tester);
-
   }
 
   checkParam(param) {
@@ -260,6 +250,7 @@ class App extends Component {
                   code={this.state.code}
                   showTimerCallBack={this.determineTimer}
                   candidateId={this.state.testerMturkId}
+                  isWaitingForTeamFormation={this.state.isWaitingForTeamFormation}
                   isInteam={this.state.isInteam}/>);
     }else {
       curPage = (<AgreementPage
@@ -379,11 +370,13 @@ class App extends Component {
           <div className={this.state.showTimer ? 'counter-center-box' : 'center-timer-teamselection'}>
             {/* <span className="counter-box-app-text">
             Time to wait:
-            </span> */}
+          </span> */}
             <ReactCountdownClock  seconds={600} color="#000" alpha={1.0} size={100} onComplete={this.goToTeamTask} restartOnNewProps={false}/>
           </div>
         </div>
-        <div className={this.state.isWaitingForTeamFormation ? 'counter-center-box' : 'disable-display'}>
+        {/* <div className={this.state.isWaitingForTeamFormation ? 'counter-center-box' : 'disable-display'}> */}
+        <div className={this.state.isWaitingForTeamFormation ? 'disable-display' : 'disable-display'}>
+
 
           <ReactCountdownClock  seconds={720} color="#000" alpha={1.0} size={100} restartOnNewProps={false}/>
         </div>

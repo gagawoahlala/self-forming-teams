@@ -14,7 +14,7 @@ export default class CandidateCard extends Component {
   candidateSelection() {
     let button = null;
     if (this.props.isSelected) {
-      button = (<button 
+      button = (<button
                   disabled={this.props.isFull && !this.props.isSelected}
                   className="control-btn btn btn-default btn-danger"
                   onClick={this.props.onUnselectCallback.bind(null, this.props.candidate)}
@@ -22,7 +22,7 @@ export default class CandidateCard extends Component {
                   Unselect
                 </button>);
     } else {
-      button = (<button 
+      button = (<button
                   disabled={this.props.isFull && !this.props.isSelected}
                   className="control-btn btn btn-default btn-primary"
                   onClick={this.props.onSelectCallback.bind(null, this.props.candidate)}>
@@ -40,16 +40,16 @@ export default class CandidateCard extends Component {
           <span className="no-rating-warning">No Rating</span>}
         <div className="candidate-card-left">
           <span><h4>{this.props.candidate.name}</h4></span>
-          <ReactStars 
+          <ReactStars
             value={this.props.rating}
-            count={STAR_AMOUNT} 
-            size={STAR_SIZE} 
+            count={STAR_AMOUNT}
+            size={STAR_SIZE}
             color2={STAR_COLOR}
             edit={false}
           />
         </div>
         <div className="candidate-card-right">
-          {this.candidateSelection()}
+          {/* {this.candidateSelection()} */}
           <button
             className="control-btn btn btn-default btn-primary"
             onClick={this.props.onCandidateViewClick.bind(null, this.props.candidate)}>

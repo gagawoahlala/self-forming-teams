@@ -2,9 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import * as Const from './Constants/TeamTaskHtml.jsx';
 import Iframe from 'react-iframe';
 import ReactCountdownClock from 'react-countdown-clock-fork';
+import {Glyphicon} from 'react-bootstrap';
 import PopUpButton from './PopUpButton.jsx';
 import { browserHistory } from 'react-router';
 faker = require('faker');
+
+
 
 
 export default class TeamTaskView extends Component {
@@ -52,6 +55,9 @@ export default class TeamTaskView extends Component {
             </div>
             <div className="border-box">
               {Const.page3}
+              <div className="scroll-notice">
+                <Glyphicon glyph="arrow-down" /> {"Scroll down to see collaborative workspace"}
+              </div>
               <div className="slogan-container">
                 <div className="slogan-box">
                   {this.displaySlogans()}
@@ -70,6 +76,9 @@ export default class TeamTaskView extends Component {
             </div>
             <div className="border-box">
               {Const.page4}
+              <div className="scroll-notice">
+                <Glyphicon glyph="arrow-down" /> {"Scroll down to see collaborative workspace"}
+              </div>
               <div className="slogan-container">
                 <div className="slogan-box">
                   {this.displaySlogans()}
@@ -88,6 +97,9 @@ export default class TeamTaskView extends Component {
             </div>
             <div className="border-box">
               {Const.page5}
+              <div className="scroll-notice">
+                <Glyphicon glyph="arrow-down" /> {"Scroll down to see collaborative workspace"}
+              </div>
               <div className="slogan-container">
                 <div className="slogan-box">
                   {this.displaySlogans()}
@@ -106,6 +118,9 @@ export default class TeamTaskView extends Component {
             </div>
             <div className="border-box">
               {Const.page6}
+              <div className="scroll-notice">
+                <Glyphicon glyph="arrow-down" /> Scroll down to see collaborative workspace"
+              </div>
               <div className="slogan-container">
                 <div className="slogan-box">
                   {this.displaySlogans()}

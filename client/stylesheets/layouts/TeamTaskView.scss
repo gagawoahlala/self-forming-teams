@@ -64,15 +64,15 @@
 
 .border-box .slogan-box {
   text-align: center;
-  border-style: ridge;
-  width: 50%;
+  border-top: 2px solid;
+  width: 100%;
 }
 
 .border-box .slogan-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .border-box .slogan-box .slogan{
@@ -84,4 +84,13 @@
 .center-timer-teamtask {
   text-align: center;
   margin-top: 3%;
+}
+
+.scroll-notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  color: blue;
+  // text-align: center;
 }

@@ -39,8 +39,8 @@ export default class DataManager {
     console.log(candidateToForm);
     let i = 0;
     if (candidateToForm.length % teamSize != 0) {
-      let team_id = ++i;
-      // let team_id = faker.finance.account();
+      // let team_id = ++i;
+      let team_id = faker.finance.account();
       let candidateToFormModified = candidateToForm.splice(0, 1).map(function (candidate) {
         Candidate.update({_id: candidate[0]},{$set: {team_id: team_id}});
         return candidate[1];
@@ -51,7 +51,8 @@ export default class DataManager {
     }
     while (candidateToForm.length > 0) {
       // let team_id = fakesr.finance.account();
-      let team_id = ++i;
+      let team_id = faker.finance.account();
+      // let team_id = ++i;
       let candidateToFormModified = candidateToForm.splice(0,teamSize).map(function (candidate) {
         Candidate.update({_id: candidate[0]},{$set: {team_id: team_id}});
         return candidate[1];
@@ -185,8 +186,8 @@ export default class DataManager {
           // console.log(tempObj.teammates[j]);
           set.add(tempObj.teammates[j]);
         }
-        // let team_id = faker.finance.account();
-        let team_id = ++tempindex;
+        let team_id = faker.finance.account();
+        // let team_id = ++tempindex;
         for (var j = 0; j < tempObj._ids.length; j++) {
           // console.log(tempObj._ids[j]);
           Candidate.update({_id: tempObj._ids[j]},{$set: {team_id: team_id}});
@@ -202,8 +203,8 @@ export default class DataManager {
     if (set.size < candidateToForm.length) {
       for (var i = 0; i < candidateToForm.length; i++) {
         if (!set.has(candidateToForm[i].mturk_id)) {
-          let team_id = ++tempindex;
-          // let team_id = faker.finance.account();
+          // let team_id = ++tempindex;
+          let team_id = faker.finance.account();
           Candidate.update({_id: candidateToForm[i]._id},{$set: {team_id: team_id}});
           Team.insert({team_id: team_id, members: [candidateToForm[i].mturk_id]});
         }
@@ -233,112 +234,6 @@ export default class DataManager {
     score += weights["weight_preference"] * (score1 + score2) / 2;
     return score;
   }
-
-  static algorithmAssignByPair2(teamSize) {
-    weights = {
-      "extraversion": 0,
-      "agreeableness": 0,
-      "conscientiousness": 0,
-      "neuroticism": 0,
-      "openness": 0,
-      "mutual_rating_average": 0,
-      "weight_preference": 1,
-      "weight_preference_subweight": [3, 0, 0],
-    }
-
-    let resultTeam = [];
-
-    let candidateToForm =  Candidate.find({stage: 2}).fetch();
-    for (var i = 0; i < candidateToForm.length; i++) {
-
-      for (var j = i + 1; j < candidateToForm.length; j++) {
-        let temp_candidate = {
-          "_ids": [candidateToForm[i]._id, candidateToForm[j]._id],
-          "teammates": [],
-          "score": 0
-        }
-        let score = 0;
-        let member1Stage1 = Candidate.find({stage: 1, mturk_id: candidateToForm[i].mturk_id}).fetch()[0];
-        let member2Stage1 = Candidate.find({stage: 1, mturk_id: candidateToForm[j].mturk_id}).fetch()[0];
-        let member1Stage2 = candidateToForm[i];
-        let member2Stage2 = candidateToForm[j];
-        score += Math.abs(DataManager.scoreCalculator(weights, member1Stage1.score_base) - DataManager.scoreCalculator(weights, member2Stage1.score_base));
-        // score += weights["mutual_rating_average"] * (member1Stage2.rating[member2Stage2.mturk_id] + member2Stage2.rating[member1Stage2.mturk_id]) / 2;
-        console.log(score);
-        score += DataManager.getPairingScore(weights, member1Stage2, member2Stage2);
-        // score += weights["weight_preference"] * DataManager.getPairingScore(weights["weight_preference_subweight"], member1Stage2, member2Stage2);
-        console.log(score);
-        temp_candidate.score = score;
-        // console.log(score);
-        temp_candidate.teammates = [member1Stage2.mturk_id,member2Stage2.mturk_id];
-        // console.log(temp_candidate);
-
-        // heap.push(temp_candidate);
-        if (!isNaN(score)) {
-          resultTeam.push(temp_candidate);
-        }
-      }
-    }
-    console.log("finish finding the combination");
-    resultTeam.sort(function(left, right) {
-      return left.score >= right.score ? -1 : 1;
-    });
-    // console.log(resultTeam);
-
-    let set = new Set([]);
-    let counter = 0;
-    let tempindex = 0;
-    for (var i = 0; i < resultTeam.length; i++) {
-      // console.log(Math.floor(candidateToForm.length / teamSize));
-      if (counter === Math.floor(candidateToForm.length / teamSize)) {
-        // console.log("break");
-        break;
-      }
-      let tempObj = resultTeam[i];
-      // console.log(tempObj);
-      let isValid = true;
-      for (var j = 0; j < tempObj.teammates.length; j++) {
-        if (set.has(tempObj.teammates[j])) {
-          // console.log("Found duplicate");
-          isValid  = false;
-          break;
-        }
-      }
-
-      if (isValid) {
-        for (var j = 0; j < tempObj.teammates.length; j++) {
-          // console.log(tempObj.teammates[j]);
-          set.add(tempObj.teammates[j]);
-        }
-        // let team_id = faker.finance.account();
-        let team_id = ++tempindex;
-
-        for (var j = 0; j < tempObj._ids.length; j++) {
-          console.log(tempObj._ids[j]);
-          Candidate.update({_id: tempObj._ids[j]},{$set: {team_id: team_id}});
-        }
-        Team.insert({team_id: team_id, members: tempObj.teammates});
-        counter++;
-      }
-    }
-    // console.log("The size for the set is:");
-    // console.log(set.size);
-    // console.log("The size for the total candidate is:");
-    // console.log(candidateToForm.length);
-    if (set.size < candidateToForm.length) {
-      for (var i = 0; i < candidateToForm.length; i++) {
-        if (!set.has(candidateToForm[i].mturk_id)) {
-          let team_id = ++tempindex;
-          // let team_id = faker.finance.account();
-          Candidate.update({_id: candidateToForm[i]._id},{$set: {team_id: team_id}});
-          Team.insert({team_id: team_id, members: [candidateToForm[i].mturk_id]});
-        }
-      }
-    }
-
-
-  }
-
 
   static scoreCalculator(weights, score_base) {
     let score = 0;
@@ -371,7 +266,9 @@ export default class DataManager {
   }
 
   static getSloganForTeams(teamId) {
-    let teams = Team.find({team_id: Number(teamId)}).fetch();
+    // console.log(Number(teamId));
+    console.log(teamId);
+    let teams = Team.find({team_id: teamId}).fetch();
     console.log(teams);
     let membersId = teams.map(function(team) {
       return team.members;

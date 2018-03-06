@@ -52,8 +52,7 @@ export default class SummaryPage extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.selection.length == Const.MAX_CANDIDATES_CHOOSE &&
-        !Object.values(this.props.ratings).includes(0) &&
+    if (!Object.values(this.props.ratings).includes(0) &&
         !(Object.values(this.props.metaRating).includes(0) || Object.values(this.props.metaRating).includes(""))) {
       this.props.callBack(true);
     } else {
@@ -176,7 +175,8 @@ export default class SummaryPage extends Component {
       if (this.state.selection.length == Const.MAX_CANDIDATES_CHOOSE)
         return true;
       else
-        return false;
+      // return false;
+        return true;
     }
   }
 
@@ -202,10 +202,10 @@ export default class SummaryPage extends Component {
                 Rate all candidates (you can click view and rate them).
                 {this.getTodoSymbol("rate")}
               </li>
-              <li className={this.getTodoClassName("select")}>
+              {/* <li className={this.getTodoClassName("select")}>
                 Choose 3 potential teamates and sort them based on how well do you think you can work together.
                 {this.getTodoSymbol("select")}
-              </li>
+              </li> */}
               <li className={this.getTodoClassName("other")}>
                 Finish all survey satisfaction questions.
                 {this.getTodoSymbol("other")}
